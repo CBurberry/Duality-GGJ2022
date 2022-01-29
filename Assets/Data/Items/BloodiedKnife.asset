@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: BloodiedKnife
   m_EditorClassIdentifier: 
   ItemType: 6
-  Sprite: {fileID: 0}
+  Sprite: {fileID: 21300000, guid: dbf00a951c1a76347ad22d11a8b54da2, type: 3}

@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Key
   m_EditorClassIdentifier: 
   ItemType: 0
-  Sprite: {fileID: 0}
+  Sprite: {fileID: 21300000, guid: c4884181ce6ebf54abd07203bb3e0138, type: 3}

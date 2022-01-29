@@ -1494,3 +1494,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 2558c2fa6bd3e104d8b84ae0e505e0a6, type: 2}
   - {fileID: 11400000, guid: 7bbbf9ebc09333449aa266ab44425b3b, type: 2}
   layoutGroup: {fileID: 0}
+  iconPrefab: {fileID: 124885873149946443, guid: 8a9a704a833fafd4dbf915067105b533, type: 3}

@@ -21,8 +21,7 @@ public class AttachedUIPrompt : MonoBehaviour
     private Vector2 offset;
 
     [Label("UI Prompt")]
-    [SerializeField]
-    private GameObject uiPrompt;
+    public GameObject UIPrompt;
 
     void Awake()
     {
@@ -33,7 +32,7 @@ public class AttachedUIPrompt : MonoBehaviour
             return;
         }
 
-        uiPrompt.transform.SetParent(canvas.transform);
+        UIPrompt.transform.SetParent(canvas.transform);
     }
 
     void Start()
@@ -64,6 +63,6 @@ public class AttachedUIPrompt : MonoBehaviour
         screenPos.y += offset.y;
 
         //Apply new position to UI element
-        uiPrompt.transform.position = screenPos;
+        UIPrompt.transform.position = screenPos;
     }
 }
