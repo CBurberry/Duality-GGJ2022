@@ -29,7 +29,14 @@ public class PlayerInventory : MonoBehaviour
 
     //UI element associated for displaying items
     [SerializeField]
-    private HorizontalOrVerticalLayoutGroup layoutGroup;
+    private GridLayoutGroup layoutGroup;
+
+    //UI prefab to instantiate in the layout group
+    [SerializeField]
+    private GameObject iconPrefab;
+
+    //Map of item enum to icon
+    private Dictionary<Items, GameObject> itemIconReferences = new Dictionary<Items, GameObject>();
 
     private string playerInventoryAssetName = "PlayerInventoryUI";
 
@@ -38,12 +45,17 @@ public class PlayerInventory : MonoBehaviour
         var inventoryObj = GameObject.Find(playerInventoryAssetName);
         if (inventoryObj != null)
         {
-            layoutGroup = inventoryObj.GetComponent<HorizontalOrVerticalLayoutGroup>();
+            layoutGroup = inventoryObj.GetComponent<GridLayoutGroup>();
         }
 
         if (layoutGroup == null)
         {
-            Debug.LogError($"{GetType().Name} could not find a '{playerInventoryAssetName}' UI element in Scene!");
+            Debug.LogError($"{name}'s {GetType().Name} component could not find a '{playerInventoryAssetName}' UI element in Scene!");
+        }
+
+        if (iconPrefab == null)
+        {
+            Debug.LogError($"{name}'s {GetType().Name} component reference to icon UI prefab was not set!");
         }
     }
 
@@ -58,28 +70,40 @@ public class PlayerInventory : MonoBehaviour
 
         Debug.Log($"Picked up an item of type '{pickup.item.ToString()}'!");
         AddItem(pickup.item);
+
+        pickup.gameObject.SetActive(false);
+        Destroy(pickup.gameObject);
     }
 
     private void AddItem(Items item)
     {
-        heldItems.Add(item);
+        if (heldItems.Contains(item))
+        {
+            Debug.LogError("Tried to pick up a duplicate of an item! Operation not supported!");
+            return;
+        }
 
-        //TODO - update UI elements
+        var data = GetItemData(item);
+        var icon = Instantiate(iconPrefab, layoutGroup.transform);
+        icon.GetComponent<Image>().sprite = data.Sprite;
+        itemIconReferences.Add(item, icon);
+        heldItems = itemIconReferences.Keys.ToList();
     }
 
     private void ReplaceItem(Items itemToRemove, Items itemToAdd)
     {
-        heldItems.Add(itemToAdd);
-        heldItems.Remove(itemToRemove);
-
-        //TODO - update UI elements
+        var icon = itemIconReferences[itemToRemove];
+        itemIconReferences.Remove(itemToRemove);
+        itemIconReferences.Add(itemToAdd, icon);
+        icon.GetComponent<Image>().sprite = GetItemData(itemToAdd).Sprite;
+        heldItems = itemIconReferences.Keys.ToList();
     }
 
     private void RemoveItem(Items item)
     {
         heldItems.Remove(item);
-
-        //TODO - update UI elements
+        itemIconReferences.Remove(item);
+        heldItems = itemIconReferences.Keys.ToList();
     }
 
     private ItemData GetItemData(Items item)
