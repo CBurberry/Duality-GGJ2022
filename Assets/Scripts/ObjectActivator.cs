@@ -4,6 +4,7 @@ using UnityEngine;
 public class ObjectActivator : MonoBehaviour
 {
     [BoxGroup("ObjectActivator")]
+    [Tag]
     [SerializeField]
     protected string activatorTag = null;
 
@@ -15,7 +16,9 @@ public class ObjectActivator : MonoBehaviour
     [SerializeField]
     protected GameObject[] activatableObjects = null;
 
-    protected bool isInTrigger = false;
+    [BoxGroup("ObjectActivator")]
+    [ShowNonSerializedField]
+    protected bool activated = false;
 
     protected virtual void Start()
     {
@@ -29,9 +32,8 @@ public class ObjectActivator : MonoBehaviour
     {
         if (collision.CompareTag(activatorTag))
         {
-            isInTrigger = true;
-            foreach (var obj in activatableObjects)
-                obj.SetActive(true);
+            activated = true;
+            SetObjectsActive(true);
         }
     }
 
@@ -39,9 +41,21 @@ public class ObjectActivator : MonoBehaviour
     {
         if (deactivateOnExit && collision.CompareTag(activatorTag))
         {
-            isInTrigger = false;
-            foreach (var obj in activatableObjects)
-                obj.SetActive(false);
+            activated = false;
+            SetObjectsActive(false);
         }
+    }
+
+    private void SetObjectsActive(bool isActive)
+    {
+        foreach (var obj in activatableObjects)
+            obj.SetActive(isActive);
+    }
+
+    [Button("ToggleActive")]
+    private void DEBUG_ToggleActive()
+    {
+        activated = !activated;
+        SetObjectsActive(activated);
     }
 }
