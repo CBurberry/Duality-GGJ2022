@@ -31,7 +31,7 @@ public class PlayerRenderer : MonoBehaviour
     {
         foreach (var renderer in renderers)
         {
-            renderer.sortingLayerName = defaultSortingLayer;
+            renderer.sortingLayerName = hidingSortingLayer;
         }
     }
 
