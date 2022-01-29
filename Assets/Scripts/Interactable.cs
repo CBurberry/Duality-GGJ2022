@@ -1,7 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
+using UnityEngine.EventSystems;
+using UnityEngine.Events;
+using NaughtyAttributes;
+
+[System.Serializable]
+public class GameObjectEvent : UnityEvent<GameObject>
+{
+}
 
 /// <summary>
 /// Interactable activates objects associated with it (UI prompts) 
@@ -9,19 +16,24 @@ using UnityEngine.InputSystem;
 /// </summary>
 public class Interactable : ObjectActivator
 {
+    [BoxGroup("Interactable")]
     public bool CanBeInteracted = false;
+    [BoxGroup("Interactable")]
+    public GameObjectEvent OnInteract;
 
+    [EnableIf("CanBeInteracted")]
+    [Button("Interact")]
     public virtual void Interact()
     {
-        //TODO
+        if (CanBeInteracted)
+        {
+            OnInteract.Invoke(gameObject);
+        }
     }
 
     protected virtual void Update()
     {
-        if (CanBeInteracted)
-        {
-            var gamepad = Gamepad.current;
-        }
+        //TODO
     }
 
     protected override void OnTriggerEnter2D(Collider2D collision)

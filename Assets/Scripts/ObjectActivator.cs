@@ -1,10 +1,19 @@
+using NaughtyAttributes;
 using UnityEngine;
 
 public class ObjectActivator : MonoBehaviour
 {
-    [SerializeField] protected string activatorTag = null;
-    [SerializeField] protected bool deactivateOnExit = false;
-    [SerializeField] protected GameObject[] objects = null;
+    [BoxGroup("ObjectActivator")]
+    [SerializeField]
+    protected string activatorTag = null;
+
+    [BoxGroup("ObjectActivator")]
+    [SerializeField]
+    protected bool deactivateOnExit = false;
+
+    [BoxGroup("ObjectActivator")]
+    [SerializeField]
+    protected GameObject[] activatableObjects = null;
 
     protected bool isInTrigger = false;
 
@@ -21,7 +30,7 @@ public class ObjectActivator : MonoBehaviour
         if (collision.CompareTag(activatorTag))
         {
             isInTrigger = true;
-            foreach (var obj in objects)
+            foreach (var obj in activatableObjects)
                 obj.SetActive(true);
         }
     }
@@ -31,7 +40,7 @@ public class ObjectActivator : MonoBehaviour
         if (deactivateOnExit && collision.CompareTag(activatorTag))
         {
             isInTrigger = false;
-            foreach (var obj in objects)
+            foreach (var obj in activatableObjects)
                 obj.SetActive(false);
         }
     }
