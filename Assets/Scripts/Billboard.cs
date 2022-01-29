@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class Billboard : MonoBehaviour
 {
-    private float moveUpSpeed = 1f;
-
-
     void LateUpdate ()
     {
         //// GET CAMERA POS /////
