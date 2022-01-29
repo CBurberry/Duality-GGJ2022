@@ -2,23 +2,35 @@ using UnityEngine;
 
 public class ObjectActivator : MonoBehaviour
 {
-    [SerializeField] string activatorTag = null;
-    [SerializeField] bool deactivateOnExit = false;
-    [SerializeField] GameObject[] objects = null;
+    [SerializeField] protected string activatorTag = null;
+    [SerializeField] protected bool deactivateOnExit = false;
+    [SerializeField] protected GameObject[] objects = null;
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    protected bool isInTrigger = false;
+
+    protected virtual void Start()
+    {
+        if (GetComponent<Collider2D>() == null)
+        {
+            Debug.LogError($"No Collider2D component is attached to '{GetType().Name}' component on {name}!");
+        }
+    }
+
+    protected virtual void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag(activatorTag))
         {
+            isInTrigger = true;
             foreach (var obj in objects)
                 obj.SetActive(true);
         }
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
+    protected virtual void OnTriggerExit2D(Collider2D collision)
     {
         if (deactivateOnExit && collision.CompareTag(activatorTag))
         {
+            isInTrigger = false;
             foreach (var obj in objects)
                 obj.SetActive(false);
         }
