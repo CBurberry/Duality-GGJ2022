@@ -23,19 +23,22 @@ public class PlayerMovement : MonoBehaviour
         Normal,
     }
     
-    /////// STATE INITIALIZATION ///////
+    /////// INITIALIZATION ///////
     private void Awake() 
     {
+        /// set the animator
         if (anim == null)
         {
             anim = this.GetComponentInChildren<Animator>();
         }
-
+        /// make this a single instance
         instance = this;
+        /// get player components
         playerBase = gameObject.GetComponent<GameObject>();
         playerRigidbody2D = gameObject.GetComponent<Rigidbody2D>();
-        state = State.Normal;   //set state
-
+        /// set state
+        state = State.Normal;   
+        ///get input
         inputActions = new InputActions();
     }
 
