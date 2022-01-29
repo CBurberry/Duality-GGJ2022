@@ -11,7 +11,7 @@ public class PlayerRenderer : MonoBehaviour
     SpriteRenderer[] renderers;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         renderers = GetComponentsInChildren<SpriteRenderer>();
         if (renderers == null)
