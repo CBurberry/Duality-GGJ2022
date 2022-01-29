@@ -26,7 +26,7 @@ public class Interactable : ObjectActivator
     [BoxGroup("Interactable")]
     public GameObjectEvent OnInteract;
 
-    [EnableIf("CanBeInteracted")]
+    [EnableIf(EConditionOperator.And, "CanBeInteracted", "isFocused")]
     [Button("Interact")]
     public virtual void Interact()
     {
