@@ -1,25 +1,46 @@
+using NaughtyAttributes;
 using UnityEngine;
 
 public class ObjectActivator : MonoBehaviour
 {
-    [SerializeField] string activatorTag = null;
-    [SerializeField] bool deactivateOnExit = false;
-    [SerializeField] GameObject[] objects = null;
+    [BoxGroup("ObjectActivator")]
+    [SerializeField]
+    protected string activatorTag = null;
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    [BoxGroup("ObjectActivator")]
+    [SerializeField]
+    protected bool deactivateOnExit = false;
+
+    [BoxGroup("ObjectActivator")]
+    [SerializeField]
+    protected GameObject[] activatableObjects = null;
+
+    protected bool isInTrigger = false;
+
+    protected virtual void Start()
+    {
+        if (GetComponent<Collider2D>() == null)
+        {
+            Debug.LogError($"No Collider2D component is attached to '{GetType().Name}' component on {name}!");
+        }
+    }
+
+    protected virtual void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag(activatorTag))
         {
-            foreach (var obj in objects)
+            isInTrigger = true;
+            foreach (var obj in activatableObjects)
                 obj.SetActive(true);
         }
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
+    protected virtual void OnTriggerExit2D(Collider2D collision)
     {
         if (deactivateOnExit && collision.CompareTag(activatorTag))
         {
-            foreach (var obj in objects)
+            isInTrigger = false;
+            foreach (var obj in activatableObjects)
                 obj.SetActive(false);
         }
     }
