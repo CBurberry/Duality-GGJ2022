@@ -32,7 +32,6 @@ public class Interactable : ObjectActivator
     {
         if (CanBeInteracted && isFocused)
         {
-            Debug.Log("Invoking Callback!");
             OnInteract.Invoke(gameObject);
         }
         else

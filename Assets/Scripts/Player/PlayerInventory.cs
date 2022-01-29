@@ -27,13 +27,12 @@ public class PlayerInventory : MonoBehaviour
     [SerializeField]
     private List<ItemData> itemData;
 
-    //UI element associated for displaying items
-    [SerializeField]
-    private GridLayoutGroup layoutGroup;
-
     //UI prefab to instantiate in the layout group
     [SerializeField]
     private GameObject iconPrefab;
+
+    //UI element associated for displaying items
+    private GridLayoutGroup layoutGroup;
 
     //Map of item enum to icon
     private Dictionary<Items, GameObject> itemIconReferences = new Dictionary<Items, GameObject>();
