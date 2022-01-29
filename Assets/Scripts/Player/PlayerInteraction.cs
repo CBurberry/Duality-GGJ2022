@@ -64,7 +64,7 @@ public class PlayerInteraction : MonoBehaviour
         }
     }
 
-private void UpdateFocus()
+    private void UpdateFocus()
     {
         //Get the closest distance gameobject
         Transform tMin = null;
