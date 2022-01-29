@@ -20,6 +20,14 @@ public class ObjectActivator : MonoBehaviour
     [ShowNonSerializedField]
     protected bool activated = false;
 
+    [BoxGroup("ObjectActivator")]
+    [ShowNonSerializedField]
+    protected bool isOverlappingActivator;
+
+    [BoxGroup("ObjectActivator")]
+    [SerializeField]
+    private bool activateOnOverlap = false;
+
     protected virtual void Start()
     {
         if (GetComponent<Collider2D>() == null)
@@ -32,8 +40,11 @@ public class ObjectActivator : MonoBehaviour
     {
         if (collision.CompareTag(activatorTag))
         {
-            activated = true;
-            SetObjectsActive(true);
+            isOverlappingActivator = true;
+            if (activateOnOverlap)
+            {
+                SetObjectsActive(true);
+            }
         }
     }
 
@@ -41,13 +52,14 @@ public class ObjectActivator : MonoBehaviour
     {
         if (deactivateOnExit && collision.CompareTag(activatorTag))
         {
-            activated = false;
+            isOverlappingActivator = false;
             SetObjectsActive(false);
         }
     }
 
-    private void SetObjectsActive(bool isActive)
+    protected void SetObjectsActive(bool isActive)
     {
+        activated = isActive;
         foreach (var obj in activatableObjects)
             obj.SetActive(isActive);
     }

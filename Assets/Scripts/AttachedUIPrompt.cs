@@ -13,7 +13,9 @@ using UnityEngine.UI;
 public class AttachedUIPrompt : MonoBehaviour
 {
     private Canvas canvas;
-    private bool alwaysUpdate = false;
+
+    [SerializeField]
+    private bool alwaysUpdate = true;
 
     [SerializeField]
     private Vector2 offset;

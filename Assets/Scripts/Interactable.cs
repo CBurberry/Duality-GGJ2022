@@ -18,6 +18,11 @@ public class Interactable : ObjectActivator
 {
     [BoxGroup("Interactable")]
     public bool CanBeInteracted = false;
+
+    [BoxGroup("Interactable")]
+    [SerializeField]
+    private bool isFocused = false;
+
     [BoxGroup("Interactable")]
     public GameObjectEvent OnInteract;
 
@@ -25,15 +30,21 @@ public class Interactable : ObjectActivator
     [Button("Interact")]
     public virtual void Interact()
     {
-        if (CanBeInteracted)
+        if (CanBeInteracted && isFocused)
         {
+            Debug.Log("Invoking Callback!");
             OnInteract.Invoke(gameObject);
+        }
+        else
+        {
+            Debug.LogWarning("Interaction was attempted on an invalid interaction state!");
         }
     }
 
-    protected virtual void Update()
+    public void SetFocused(bool toValue)
     {
-        //TODO
+        isFocused = toValue;
+        SetObjectsActive(toValue);
     }
 
     protected override void OnTriggerEnter2D(Collider2D collision)
