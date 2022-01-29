@@ -26,6 +26,7 @@ public class PlayerRenderer : MonoBehaviour
         }
     }
 
+    [Button]
     public void SetHiding()
     {
         foreach (var renderer in renderers)
@@ -34,6 +35,7 @@ public class PlayerRenderer : MonoBehaviour
         }
     }
 
+    [Button]
     public void SetDefault()
     {
         foreach (var renderer in renderers)
