@@ -6,8 +6,10 @@ using UnityEngine;
 /// </summary>
 public abstract class GameplayTrigger : MonoBehaviour
 {
+    [BoxGroup("GameplayTrigger")]
     public bool isRepeatable = false;
 
+    [BoxGroup("GameplayTrigger")]
     [Tag]
     public string activatorTag = "Player"; 
 
