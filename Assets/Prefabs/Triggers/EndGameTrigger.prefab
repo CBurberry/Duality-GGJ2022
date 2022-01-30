@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2080626658788091158}
   - component: {fileID: 2080626658788091159}
   - component: {fileID: 2080626658788091157}
+  - component: {fileID: 1698733072}
   m_Layer: 0
   m_Name: EndGameTrigger
   m_TagString: Untagged
@@ -72,8 +73,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isRepeatable: 0
   activatorTag: Player
-  cameraPanFocus: {fileID: 0}
-  cameraPanSpeed: 1
+  inputActionsAsset: {fileID: -944628639613478452, guid: b57317ee12d840643b2fd32d8a55a338, type: 3}
+--- !u!114 &1698733072
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2080626658788091152}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c562363fe1d09b64ba1d3cbb984ddd5d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   fadeScreen: {fileID: 0}
   fadeDuration: 3
-  inputActionsAsset: {fileID: -944628639613478452, guid: b57317ee12d840643b2fd32d8a55a338, type: 3}
