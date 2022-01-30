@@ -12,13 +12,12 @@ public class Pickup : Interactable
     {
         base.Start();
 
-        //Get Player object in scene
-        var playerObject = GameObject.FindGameObjectWithTag("Player");
-
-        //Get Inventory component
-        var inventoryComponent = playerObject.GetComponent<PlayerInventory>();
-
-        //Assign function
-        OnInteract.AddListener(inventoryComponent.PickupItem);
+        //Assign player inventory pickup callback to OnInteract if unset
+        if (OnInteract.GetPersistentEventCount() == 0)
+        {
+            var playerObject = GameObject.FindGameObjectWithTag("Player");
+            var inventoryComponent = playerObject.GetComponent<PlayerInventory>();
+            OnInteract.AddListener(inventoryComponent.PickupItem);
+        }
     }
 }
