@@ -16,6 +16,7 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] private Animator anim;
     [SerializeField] private bool canTurn = false;
+    [SerializeField] CharacterAudio audioPlayer = null;
 
     /////// STATE OPTIONS ///////
     private enum State 
@@ -68,6 +69,10 @@ public class PlayerMovement : MonoBehaviour
             ////MOVE THE PLAYER/////
             playerRigidbody2D.MovePosition(transform.position + (Vector3)move * SPEED * Time.fixedDeltaTime);
             
+            ////Play Steps/////
+            if (move != Vector2.zero)
+                audioPlayer.PlaySteps();
+
             //if facing right is true and move.x < 0
             if( canTurn == true && move.x > 0 )
             {
