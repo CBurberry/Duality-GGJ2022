@@ -3065,6 +3065,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 567328449839082856, guid: bc9f2acb7974ab746ac7983f178cc74b, type: 3}
+      propertyPath: stepsTimeGap
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 567328449839082856, guid: bc9f2acb7974ab746ac7983f178cc74b, type: 3}
       propertyPath: footstepsAudioSource
       value: 
       objectReference: {fileID: 976833746}
