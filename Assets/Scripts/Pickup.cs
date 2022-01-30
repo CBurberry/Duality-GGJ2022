@@ -5,7 +5,6 @@ using UnityEngine.UI;
 public class Pickup : Interactable
 {
     [BoxGroup("Pickup")]
-    [EnumFlags]
     public PlayerInventory.Items item;
 
     protected override void Start()
