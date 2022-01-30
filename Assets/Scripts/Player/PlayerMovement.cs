@@ -7,7 +7,7 @@ public class PlayerMovement : MonoBehaviour
 {
     public static PlayerMovement instance;
 
-    [SerializeField] private const float SPEED = 4f;
+    [SerializeField] private const float SPEED = 2f;
 
     private GameObject playerBase;
     [SerializeField] private State state;
