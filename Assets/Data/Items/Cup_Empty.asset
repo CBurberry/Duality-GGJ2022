@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Cup_Empty
   m_EditorClassIdentifier: 
   ItemType: 4
-  Sprite: {fileID: 21300000, guid: 04c0fef128c6cd84ca542d28cc9a3c42, type: 3}
+  Sprite: {fileID: 21300000, guid: e0537d9ec28ab3145b64f2246078b2b9, type: 3}

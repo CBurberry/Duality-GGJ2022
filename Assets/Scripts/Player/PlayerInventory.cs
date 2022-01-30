@@ -13,8 +13,8 @@ public class PlayerInventory : MonoBehaviour
     public enum Items
     {
         Key,
-        Saucepan_Empty,
-        Saucepan_WaterFilled,
+        Kettle_Empty,
+        Kettle_WaterFilled,
         Tea,
         Cup_Empty,
         Cup_TeaFilled,
