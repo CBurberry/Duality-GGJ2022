@@ -39,7 +39,7 @@ public abstract class GameplayTrigger : MonoBehaviour
             ExecuteTriggerBehaviour();
             if (!isRepeatable)
             {
-                Destroy(gameObject);
+                enabled = false;
             }
         }
     }

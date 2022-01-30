@@ -1,6 +1,7 @@
 using NaughtyAttributes;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 /// <summary>
@@ -9,7 +10,6 @@ using UnityEngine.UI;
 public class EndGameTrigger : GameplayTrigger
 {
     [BoxGroup("EndGameTrigger")]
-    [ValidateInput("IsNotNull")]
     [SerializeField]
     private GameObject cameraPanFocus;
 
@@ -19,7 +19,6 @@ public class EndGameTrigger : GameplayTrigger
     private float cameraPanSpeed;
 
     [BoxGroup("EndGameTrigger")]
-    [ValidateInput("IsNotNull")]
     [SerializeField]
     private Image fadeScreen;
 
@@ -29,32 +28,15 @@ public class EndGameTrigger : GameplayTrigger
     private float fadeDuration;
 
     [BoxGroup("EndGameTrigger")]
-    [ValidateInput("IsNotNull")]
     [SerializeField]
-    private InputActions inputActionsAsset;
+    private InputActionAsset inputActionsAsset;
 
-    private Color transparentBlack = new Color(1f, 1f, 1f, 0f);
-    private Color opaqueBlack = new Color(1f, 1f, 1f, 1f);
+    private Color transparentBlack = new Color(0f, 0f, 0f, 0f);
+    private Color opaqueBlack = new Color(0f, 0f, 0f, 1f);
 
     protected override void Awake()
     {
         base.Awake();
-
-        if (fadeScreen == null || cameraPanFocus == null)
-        {
-            Debug.LogError($"{name}'s '{nameof(EndGameTrigger)}' component has an unset reference!");
-        }
-
-        if (cameraPanSpeed > 0f)
-        {
-            Debug.LogError($"{name}'s '{nameof(EndGameTrigger)}' component camera pan speed must be greater than 0!");
-        }
-
-        if (fadeDuration >= 0f)
-        {
-            Debug.LogError($"{name}'s '{nameof(EndGameTrigger)}' component fade duration must be greater or equal to 0!");
-        }
-
         fadeScreen.enabled = false;
     }
 
@@ -65,7 +47,9 @@ public class EndGameTrigger : GameplayTrigger
 
     IEnumerator EndGameSequence()
     {
-        //Disable player input
+        Debug.Log("End Game Sequence Started!");
+
+        //Disable player input - BUGGED
         inputActionsAsset.Disable();
 
         //Camera pan to focus on a target
@@ -94,11 +78,6 @@ public class EndGameTrigger : GameplayTrigger
             fadeScreen.color = Color.Lerp(transparentBlack, opaqueBlack, alpha);
             yield return new WaitForEndOfFrame();
         }
-    }
-
-    private bool IsNotNull<T>(T obj)
-    {
-        return obj != null;
     }
 
     private bool IsGreaterThanZero(float value)
