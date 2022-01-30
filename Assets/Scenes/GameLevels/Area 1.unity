@@ -2629,6 +2629,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultSortingLayer: Player
   hidingSortingLayer: PlayerHiding
+--- !u!114 &1914193314
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1914193312}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc6183b8fb1845642af785870f6c8b6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anim: {fileID: 0}
+  _MonsterWalks: 1
+  _MonsterLooksAround: 0
+  _movementSpeed: 1
+  _maximumRotationInterval: 0
 --- !u!1001 &1918551904
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3024,15 +3041,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6008070708455782897, guid: 8bb6ca1e50c56e14b8dd7fb394ea1f32, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6008070708455782897, guid: 8bb6ca1e50c56e14b8dd7fb394ea1f32, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6008070708455782897, guid: 8bb6ca1e50c56e14b8dd7fb394ea1f32, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6008070708455782897, guid: 8bb6ca1e50c56e14b8dd7fb394ea1f32, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
