@@ -9,8 +9,21 @@ using NaughtyAttributes;
 /// </summary>
 public class GoToScene : MonoBehaviour
 {
+    [SerializeField] Animator musicAnim;
+    [SerializeField] float transitionTime = 3;
+
     [Scene]
     public string TargetScene;
+
+    
+    IEnumerator ChangeScene()
+    {
+        musicAnim.SetTrigger("FadeOut");
+        yield return new WaitForSeconds(transitionTime);
+        SceneManager.LoadScene(TargetScene);
+    }
+
+
 
     public void GoToTargetScene()
     {
@@ -20,6 +33,6 @@ public class GoToScene : MonoBehaviour
             return;
         }
 
-        SceneManager.LoadScene(TargetScene);
+        StartCoroutine(ChangeScene());
     }
 }

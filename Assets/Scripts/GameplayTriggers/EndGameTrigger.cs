@@ -8,22 +8,27 @@ using UnityEngine.UI;
 /// </summary>
 public class EndGameTrigger : GameplayTrigger
 {
+    [BoxGroup("EndGameTrigger")]
     [ValidateInput("IsNotNull")]
     [SerializeField]
     private GameObject cameraPanFocus;
 
+    [BoxGroup("EndGameTrigger")]
     [ValidateInput("IsGreaterThanZero", "Camera pan speed must be greater than 0")]
     [SerializeField]
     private float cameraPanSpeed;
 
+    [BoxGroup("EndGameTrigger")]
     [ValidateInput("IsNotNull")]
     [SerializeField]
     private Image fadeScreen;
 
+    [BoxGroup("EndGameTrigger")]
     [ValidateInput("IsGreaterThanOrEqualToZero", "Fade duration must be greater or equal to 0")]
     [SerializeField]
     private float fadeDuration;
 
+    [BoxGroup("EndGameTrigger")]
     [ValidateInput("IsNotNull")]
     [SerializeField]
     private InputActions inputActionsAsset;
