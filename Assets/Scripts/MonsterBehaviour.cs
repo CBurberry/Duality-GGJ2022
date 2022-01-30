@@ -10,6 +10,7 @@ public class MonsterBehaviour : MonoBehaviour
     [SerializeField] private float _movementSpeed;
     [SerializeField] private float _maximumRotationInterval;
     private bool _reachedXMaxPos;
+    [SerializeField] private bool _characterChase;
     private float _xMaxPos = 70;
     private float _xMinPos = -10;
 
@@ -26,7 +27,10 @@ public class MonsterBehaviour : MonoBehaviour
         if (_MonsterWalks)
         {
             transform.Translate(Vector2.right * Time.deltaTime * _movementSpeed);
-            CheckLocationChangeDirection();
+            if (!_characterChase)
+            {
+                CheckLocationChangeDirection();
+            }
             float spd = Mathf.Abs(_movementSpeed);
             anim.SetFloat("RunningSpeed", spd);
         }
@@ -56,5 +60,17 @@ public class MonsterBehaviour : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.tag == "Player")
+        {
+            _characterChase = true;
+        }
+    }
 
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        _characterChase = false;
+    }
 }
