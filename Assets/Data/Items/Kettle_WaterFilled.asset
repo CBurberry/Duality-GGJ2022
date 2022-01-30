@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Kettle_WaterFilled
   m_EditorClassIdentifier: 
   ItemType: 2
-  Sprite: {fileID: 21300000, guid: 6acc4443082a5a548a5c9548dcd1a5d3, type: 3}
+  Sprite: {fileID: 21300000, guid: b55f4932bc4ae20479e1ff4e04e75bc7, type: 3}
