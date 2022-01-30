@@ -1,6 +1,7 @@
 using NaughtyAttributes;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 /// <summary>
@@ -31,30 +32,14 @@ public class EndGameTrigger : GameplayTrigger
     [BoxGroup("EndGameTrigger")]
     [ValidateInput("IsNotNull")]
     [SerializeField]
-    private InputActions inputActionsAsset;
+    private InputActionAsset inputActionsAsset;
 
-    private Color transparentBlack = new Color(1f, 1f, 1f, 0f);
-    private Color opaqueBlack = new Color(1f, 1f, 1f, 1f);
+    private Color transparentBlack = new Color(0f, 0f, 0f, 0f);
+    private Color opaqueBlack = new Color(0f, 0f, 0f, 1f);
 
     protected override void Awake()
     {
         base.Awake();
-
-        if (fadeScreen == null || cameraPanFocus == null)
-        {
-            Debug.LogError($"{name}'s '{nameof(EndGameTrigger)}' component has an unset reference!");
-        }
-
-        if (cameraPanSpeed > 0f)
-        {
-            Debug.LogError($"{name}'s '{nameof(EndGameTrigger)}' component camera pan speed must be greater than 0!");
-        }
-
-        if (fadeDuration >= 0f)
-        {
-            Debug.LogError($"{name}'s '{nameof(EndGameTrigger)}' component fade duration must be greater or equal to 0!");
-        }
-
         fadeScreen.enabled = false;
     }
 
@@ -65,6 +50,8 @@ public class EndGameTrigger : GameplayTrigger
 
     IEnumerator EndGameSequence()
     {
+        Debug.Log("End Game Sequence Started!");
+
         //Disable player input
         inputActionsAsset.Disable();
 
