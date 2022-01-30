@@ -10,7 +10,6 @@ using UnityEngine.UI;
 public class EndGameTrigger : GameplayTrigger
 {
     [BoxGroup("EndGameTrigger")]
-    [ValidateInput("IsNotNull")]
     [SerializeField]
     private GameObject cameraPanFocus;
 
@@ -20,7 +19,6 @@ public class EndGameTrigger : GameplayTrigger
     private float cameraPanSpeed;
 
     [BoxGroup("EndGameTrigger")]
-    [ValidateInput("IsNotNull")]
     [SerializeField]
     private Image fadeScreen;
 
@@ -30,7 +28,6 @@ public class EndGameTrigger : GameplayTrigger
     private float fadeDuration;
 
     [BoxGroup("EndGameTrigger")]
-    [ValidateInput("IsNotNull")]
     [SerializeField]
     private InputActionAsset inputActionsAsset;
 
@@ -52,7 +49,7 @@ public class EndGameTrigger : GameplayTrigger
     {
         Debug.Log("End Game Sequence Started!");
 
-        //Disable player input
+        //Disable player input - BUGGED
         inputActionsAsset.Disable();
 
         //Camera pan to focus on a target
@@ -81,11 +78,6 @@ public class EndGameTrigger : GameplayTrigger
             fadeScreen.color = Color.Lerp(transparentBlack, opaqueBlack, alpha);
             yield return new WaitForEndOfFrame();
         }
-    }
-
-    private bool IsNotNull<T>(T obj)
-    {
-        return obj != null;
     }
 
     private bool IsGreaterThanZero(float value)
