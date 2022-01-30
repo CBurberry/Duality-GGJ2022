@@ -12,7 +12,7 @@ public class Pickup : Interactable
         base.Start();
 
         //Assign player inventory pickup callback to OnInteract if unset
-        if (OnInteract.GetPersistentEventCount() == 0)
+        if (string.IsNullOrWhiteSpace(OnInteract.GetPersistentMethodName(0)))
         {
             var playerObject = GameObject.FindGameObjectWithTag("Player");
             var inventoryComponent = playerObject.GetComponent<PlayerInventory>();
