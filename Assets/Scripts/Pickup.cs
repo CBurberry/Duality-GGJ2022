@@ -11,12 +11,8 @@ public class Pickup : Interactable
     {
         base.Start();
 
-        //Assign player inventory pickup callback to OnInteract if unset
-        if (string.IsNullOrWhiteSpace(OnInteract.GetPersistentMethodName(0)))
-        {
-            var playerObject = GameObject.FindGameObjectWithTag("Player");
-            var inventoryComponent = playerObject.GetComponent<PlayerInventory>();
-            OnInteract.AddListener(inventoryComponent.PickupItem);
-        }
+        var playerObject = GameObject.FindGameObjectWithTag("Player");
+        var inventoryComponent = playerObject.GetComponent<PlayerInventory>();
+        OnInteract.AddListener(inventoryComponent.PickupItem);
     }
 }
