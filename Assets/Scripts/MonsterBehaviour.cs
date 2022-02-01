@@ -5,7 +5,7 @@ using UnityEngine;
 public class MonsterBehaviour : MonoBehaviour
 {
     //Controls the Monster Movement Behaviours
-    [SerializeField] private Animator anim;
+    [SerializeField] private Animator _anim;
     [SerializeField] private bool _MonsterWalks, _MonsterLooksAround;
     [SerializeField] private float _movementSpeed;
     [SerializeField] private float _maximumRotationInterval;
@@ -13,6 +13,11 @@ public class MonsterBehaviour : MonoBehaviour
     [SerializeField] private bool _characterChase;
     private float _xMaxPos = 70;
     private float _xMinPos = -10;
+
+    private void Awake()
+    {
+        _anim = GetComponent<Animator>();
+    }
 
     private void Start()
     {
@@ -32,7 +37,7 @@ public class MonsterBehaviour : MonoBehaviour
                 CheckLocationChangeDirection();
             }
             float spd = Mathf.Abs(_movementSpeed);
-            anim.SetFloat("RunningSpeed", spd);
+            _anim.SetFloat("RunningSpeed", spd);
         }
     }
 

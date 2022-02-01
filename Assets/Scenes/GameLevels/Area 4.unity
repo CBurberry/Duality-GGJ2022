@@ -404,7 +404,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ad980451443d70438faac0bc6c235a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_TrackedObjectOffset: {x: 0, y: 0, z: 0}
+  m_TrackedObjectOffset: {x: 6, y: 0, z: 0}
   m_LookaheadTime: 0.2
   m_LookaheadSmoothing: 10
   m_LookaheadIgnoreY: 0
@@ -619,7 +619,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 619957757}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -6.874153, y: -0.035295367, z: -10}
+  m_LocalPosition: {x: -0.87415314, y: -0.035295367, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 443502534}
@@ -1417,12 +1417,28 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1270934745, guid: 34fd16e6ef9b239408e15c4dc807f9b6, type: 3}
+      propertyPath: m_Size.x
+      value: 5.4464903
+      objectReference: {fileID: 0}
+    - target: {fileID: 1270934745, guid: 34fd16e6ef9b239408e15c4dc807f9b6, type: 3}
+      propertyPath: m_Size.y
+      value: 7.9168687
+      objectReference: {fileID: 0}
+    - target: {fileID: 1270934745, guid: 34fd16e6ef9b239408e15c4dc807f9b6, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.026492476
+      objectReference: {fileID: 0}
+    - target: {fileID: 1270934745, guid: 34fd16e6ef9b239408e15c4dc807f9b6, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.0037796497
+      objectReference: {fileID: 0}
+    - target: {fileID: 1270934745, guid: 34fd16e6ef9b239408e15c4dc807f9b6, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
-      value: 4.98
+      value: 5.73
       objectReference: {fileID: 0}
     - target: {fileID: 1270934745, guid: 34fd16e6ef9b239408e15c4dc807f9b6, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.y
-      value: 8.56
+      value: 8.18
       objectReference: {fileID: 0}
     - target: {fileID: 1300066823401628069, guid: 34fd16e6ef9b239408e15c4dc807f9b6, type: 3}
       propertyPath: m_Sprite
@@ -1430,7 +1446,7 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: 89a5b5256f6cbac47a87ea6fa6eeaedc, type: 3}
     - target: {fileID: 1300066823401628071, guid: 34fd16e6ef9b239408e15c4dc807f9b6, type: 3}
       propertyPath: m_Name
-      value: Exit Door -
+      value: Exit Door - Kitchen
       objectReference: {fileID: 0}
     - target: {fileID: 1300066823401628074, guid: 34fd16e6ef9b239408e15c4dc807f9b6, type: 3}
       propertyPath: m_RootOrder
@@ -1730,7 +1746,7 @@ Transform:
   m_LocalScale: {x: 3, y: 5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 85.56}
 --- !u!1 &2056707877
 GameObject:
@@ -1759,7 +1775,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2056707877}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -6.874153, y: -0.035295367, z: -10}
+  m_LocalPosition: {x: -0.87415314, y: -0.035295367, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1412134437}

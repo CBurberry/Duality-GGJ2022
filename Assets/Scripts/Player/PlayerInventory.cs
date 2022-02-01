@@ -18,6 +18,7 @@ public class PlayerInventory : MonoBehaviour
         Tea,
         Cup_Empty,
         Cup_TeaFilled,
+        Teddy,
         BloodiedKnife
     }
 
