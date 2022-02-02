@@ -26,6 +26,9 @@ public class Interactable : ObjectActivator
     [BoxGroup("Interactable")]
     public GameObjectEvent OnInteract;
 
+    [BoxGroup("Interactable")]
+    [SerializeField] private ItemData itemRequiredForInteraction;
+
     [EnableIf(EConditionOperator.And, "CanBeInteracted", "isFocused")]
     [Button("Interact")]
     public virtual void Interact()
@@ -49,7 +52,15 @@ public class Interactable : ObjectActivator
     protected override void OnTriggerEnter2D(Collider2D collision)
     {
         base.OnTriggerEnter2D(collision);
-        CanBeInteracted = true;
+        if (itemRequiredForInteraction == null) //[BRIAN NOTE] To do: Add in check to player inventory for required item.
+        {
+            CanBeInteracted = true;
+        }
+        else if (collision.gameObject.GetComponent<PlayerInventory>().heldItems.Contains(itemRequiredForInteraction.ItemType)) // [BRIAN NOTE] WIP
+        {
+            Debug.Log("Required Item Detected.");
+            CanBeInteracted = true;
+        }
     }
 
     protected override void OnTriggerExit2D(Collider2D collision)

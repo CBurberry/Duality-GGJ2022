@@ -602,6 +602,12 @@ PrefabInstance:
       propertyPath: m_SpriteTilingProperty.oldSize.y
       value: 8.18
       objectReference: {fileID: 0}
+    - target: {fileID: 1300066822252964926, guid: 34fd16e6ef9b239408e15c4dc807f9b6, type: 3}
+      propertyPath: m_Text
+      value: 'Bedroom
+
+'
+      objectReference: {fileID: 0}
     - target: {fileID: 1300066823401628069, guid: 34fd16e6ef9b239408e15c4dc807f9b6, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -1010,6 +1016,10 @@ PrefabInstance:
       propertyPath: m_Text
       value: Fill Kettle
       objectReference: {fileID: 0}
+    - target: {fileID: 1300066823401628068, guid: 08e8baa10daa39b4880497526b6f5e49, type: 3}
+      propertyPath: itemRequiredForInteraction
+      value: 
+      objectReference: {fileID: 11400000, guid: 7739e73e25301e24eb9429c6d7c59d6d, type: 2}
     - target: {fileID: 1300066823401628069, guid: 08e8baa10daa39b4880497526b6f5e49, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -2377,19 +2387,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 830002428, guid: 740fe196a86d4014b97dfe7f136e6e35, type: 3}
       propertyPath: m_Size.x
-      value: 4.919199
+      value: 3.128748
       objectReference: {fileID: 0}
     - target: {fileID: 830002428, guid: 740fe196a86d4014b97dfe7f136e6e35, type: 3}
       propertyPath: m_Size.y
-      value: 4.3861885
+      value: 7.085224
       objectReference: {fileID: 0}
     - target: {fileID: 830002428, guid: 740fe196a86d4014b97dfe7f136e6e35, type: 3}
       propertyPath: m_Offset.x
-      value: 0.29785824
+      value: 0.043988228
       objectReference: {fileID: 0}
     - target: {fileID: 830002428, guid: 740fe196a86d4014b97dfe7f136e6e35, type: 3}
       propertyPath: m_Offset.y
-      value: -0.18812132
+      value: -1.5376391
       objectReference: {fileID: 0}
     - target: {fileID: 830002428, guid: 740fe196a86d4014b97dfe7f136e6e35, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x

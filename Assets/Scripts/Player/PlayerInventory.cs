@@ -71,8 +71,16 @@ public class PlayerInventory : MonoBehaviour
         Debug.Log($"Picked up an item of type '{pickup.item.ToString()}'!");
         AddItem(pickup.item);
 
-        pickup.gameObject.SetActive(false);
-        Destroy(pickup.gameObject);
+
+        if (pickup.noninteractableAfterPickUp) //[BRIAN NOTE] changes tag to "untagged" once picked up
+        {
+            pickup.tag = "Untagged";
+        }
+        if (pickup.deactivateOnPickUp) //[BRIAN NOTE] deactivates on pickup.
+        {
+            pickup.gameObject.SetActive(false);
+            //Destroy(pickup.gameObject);
+        }
     }
 
     private void AddItem(Items item)
