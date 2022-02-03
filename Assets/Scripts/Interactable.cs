@@ -52,13 +52,23 @@ public class Interactable : ObjectActivator
     protected override void OnTriggerEnter2D(Collider2D collision)
     {
         base.OnTriggerEnter2D(collision);
-        if (itemRequiredForInteraction == null) //[BRIAN NOTE] To do: Add in check to player inventory for required item.
+
+        //Object Can be interacted with if no item required for interaction.
+        if (itemRequiredForInteraction == null)
         {
             CanBeInteracted = true;
         }
-        else if (collision.gameObject.GetComponent<PlayerInventory>().heldItems.Contains(itemRequiredForInteraction.ItemType)) // [BRIAN NOTE] WIP
+        //Object cannot be interacted with if item required is not in inventory.
+        else if(itemRequiredForInteraction != null && !collision.gameObject.GetComponent<PlayerInventory>().heldItems.Contains(itemRequiredForInteraction.ItemType))
+        {
+            //Item Required for interaction is not in the player inventory - replace with UI prompt
+            Debug.Log("[Interactable] " + name + ": Item - " + itemRequiredForInteraction.name + " - Not Found in Player Inventory.");
+        }
+        //Object can be interacted with if the item required is in the inventory.
+        else if (itemRequiredForInteraction != null && collision.gameObject.GetComponent<PlayerInventory>().heldItems.Contains(itemRequiredForInteraction.ItemType))
         {
             Debug.Log("Required Item Detected.");
+            //Remove item from inventory
             CanBeInteracted = true;
         }
     }

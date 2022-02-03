@@ -7,6 +7,8 @@ public class PlayerRenderer : MonoBehaviour
 {
     public string defaultSortingLayer = "Player";
     public string hidingSortingLayer = "PlayerHiding";
+    private Color playerHiddenColor = Color.grey; 
+    private Color playerColor = Color.white;
 
     SpriteRenderer[] renderers;
 
@@ -41,6 +43,25 @@ public class PlayerRenderer : MonoBehaviour
         foreach (var renderer in renderers)
         {
             renderer.sortingLayerName = defaultSortingLayer;
+        }
+    }
+
+    //Changes player colour and called when hiding.
+    public void PlayerColor(bool _aHidden)
+    {
+        if (_aHidden)
+        {
+            foreach(SpriteRenderer spriteRenderer in renderers)
+            {
+                spriteRenderer.color = playerHiddenColor;
+            }
+        }
+        else if (!_aHidden)
+        {
+            foreach(SpriteRenderer spriteRenderer in renderers)
+            {
+                spriteRenderer.color = playerColor;
+            }
         }
     }
 }

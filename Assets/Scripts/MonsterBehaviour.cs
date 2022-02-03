@@ -10,7 +10,7 @@ public class MonsterBehaviour : MonoBehaviour
     [SerializeField] private float _movementSpeed;
     [SerializeField] private float _maximumRotationInterval;
     private bool _reachedXMaxPos;
-    [SerializeField] private bool _characterChase;
+    private bool _chasingCharacter;
     private float _xMaxPos = 70;
     private float _xMinPos = -10;
 
@@ -32,7 +32,7 @@ public class MonsterBehaviour : MonoBehaviour
         if (_MonsterWalks)
         {
             transform.Translate(Vector2.right * Time.deltaTime * _movementSpeed);
-            if (!_characterChase)
+            if (!_chasingCharacter)
             {
                 CheckLocationChangeDirection();
             }
@@ -69,13 +69,23 @@ public class MonsterBehaviour : MonoBehaviour
     {
         if(collision.tag == "Player")
         {
-            _characterChase = true;
+            _chasingCharacter = true;
         }
     }
 
-
     private void OnTriggerExit2D(Collider2D collision)
     {
-        _characterChase = false;
+        _chasingCharacter = false;
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.tag == "Player")
+        {
+            Debug.Log("Character Caught!");
+            //Trigger the Death of the Player
+            //Trigger Attack Animation
+            _MonsterWalks = false; //Stops the monster Walking (or it will just push the player).
+        }
     }
 }

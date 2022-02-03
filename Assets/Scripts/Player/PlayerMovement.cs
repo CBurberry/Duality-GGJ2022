@@ -7,7 +7,7 @@ public class PlayerMovement : MonoBehaviour
 {
     public static PlayerMovement instance;
 
-    [SerializeField] private const float SPEED = 2.5f;
+    [SerializeField] private const float SPEED = 4f;
 
     private GameObject playerBase;
     [SerializeField] private State state;
@@ -89,6 +89,18 @@ public class PlayerMovement : MonoBehaviour
 
 
             break;
+        }
+    }
+
+    public void SetMovementActive(bool _aActive)
+    {
+        if (_aActive)
+        {
+            inputActions.Player.Move.Enable();
+        }
+        else if (!_aActive)
+        {
+            inputActions.Player.Move.Disable();
         }
     }
 }

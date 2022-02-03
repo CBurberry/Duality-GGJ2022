@@ -11,7 +11,6 @@ public class Pickup : Interactable
     [BoxGroup("Pickup")]
     public bool deactivateOnPickUp = true;
 
-
     protected override void Start()
     {
         base.Start();

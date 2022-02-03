@@ -10,6 +10,8 @@ public class PlayerInteraction : MonoBehaviour
     private Collider2D playerCollider;
     private List<GameObject> overlappingInteractables;
     private Interactable focusedInteractable;
+    private bool playerHidden = false;
+    private PlayerRenderer playerRenderer;
 
     [Tag]
     private string interactTag = "Interactable";
@@ -101,5 +103,39 @@ public class PlayerInteraction : MonoBehaviour
         //Focus the new element
         focusedInteractable = newFocus.GetComponent<Interactable>();
         focusedInteractable.SetFocused(true);
+    }
+
+    public void HideUnHideCharacter(GameObject _hidingPlaceObject)
+    {
+        playerRenderer = GetComponent<PlayerRenderer>();
+
+        if (playerHidden) //if the player is already hiding, stop hiding.
+        {
+            Debug.Log("Unhide Character");
+            playerHidden = false;
+            playerRenderer.PlayerColor(playerHidden); //Restore the player sprite renderer colour.
+            playerRenderer.SetDefault(); //Change Sorting Layer;
+            GetComponent<PlayerMovement>().SetMovementActive(true); //Start the player moving
+            
+            //Restarts the monster and player collision from taking place.
+            GetComponent<CapsuleCollider2D>().isTrigger = false; 
+            
+        }
+        else if(!playerHidden) //if the player is not hiding, start hiding.
+        {
+            Debug.Log("Hiding Character");
+            playerHidden = true;
+            playerRenderer.PlayerColor(playerHidden); //Change the player sprite renderer colour.
+            playerRenderer.SetHiding();//Change Sorting Layer;
+            GetComponent<PlayerMovement>().SetMovementActive(false); //Stop the player moving
+            
+            /* Stops the monster and player collision from taking place, 
+             * while maintaining trigger collision with hide behind objects.
+             * 
+             * To be amended with a more elegant solution.
+             */
+            GetComponent<CapsuleCollider2D>().isTrigger = true;
+
+        }
     }
 }
