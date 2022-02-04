@@ -1,7 +1,22 @@
 fileFormatVersion: 2
 guid: 39b2716fc55f6fe4891868616ebf09bc
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: -3924070864015701540
+    second: ADULT WALK SPRITESHEET FINAL PSD_0
+  - first:
+      213: -5078388530543839391
+    second: ADULT WALK SPRITESHEET FINAL PSD_1
+  - first:
+      213: -7416163012629841931
+    second: ADULT WALK SPRITESHEET FINAL PSD_2
+  - first:
+      213: -8293056862623318347
+    second: ADULT WALK SPRITESHEET FINAL PSD_3
+  - first:
+      213: -3678970532679455604
+    second: ADULT WALK SPRITESHEET FINAL PSD_4
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -41,7 +56,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -75,9 +90,126 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: ADULT WALK SPRITESHEET FINAL PSD_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 8876.8
+        width: 3320
+        height: 2219.2
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd942ecf656ea89c0800000000000000
+      internalID: -3924070864015701540
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ADULT WALK SPRITESHEET FINAL PSD_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 6657.8
+        width: 3320
+        height: 2219.2
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1673485b980f589b0800000000000000
+      internalID: -5078388530543839391
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ADULT WALK SPRITESHEET FINAL PSD_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4438.8
+        width: 3320
+        height: 2219.2
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f7bec3580f741990800000000000000
+      internalID: -7416163012629841931
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ADULT WALK SPRITESHEET FINAL PSD_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2219.8
+        width: 3320
+        height: 2219.2
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5beb831d8b429ec80800000000000000
+      internalID: -8293056862623318347
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ADULT WALK SPRITESHEET FINAL PSD_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0.8000488
+        width: 3320
+        height: 2219.2
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c8ce284eacba1fcc0800000000000000
+      internalID: -3678970532679455604
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -90,7 +222,7 @@ TextureImporter:
     secondaryTextures: []
   spritePackingTag: 
   pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 0
+  pSDShowRemoveMatteOption: 1
   userData: 
   assetBundleName: 
   assetBundleVariant: 
