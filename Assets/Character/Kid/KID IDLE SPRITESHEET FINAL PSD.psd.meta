@@ -110,11 +110,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 7918.4
+        y: 7895
         width: 3320
-        height: 1979.6
-      alignment: 2
-      pivot: {x: 0.5, y: 1}
+        height: 2003
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -134,9 +134,9 @@ TextureImporter:
         y: 5939.4
         width: 3320
         height: 1979.6
-      alignment: 2
-      pivot: {x: 0.5, y: 1}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 38, z: 0, w: 26}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -152,12 +152,12 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 4071
+        y: 4100
         width: 3320
-        height: 1980
-      alignment: 2
-      pivot: {x: 0.5, y: 1}
-      border: {x: 0, y: 0, z: 0, w: 104}
+        height: 1840
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -173,12 +173,12 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 2247
+        y: 2235
         width: 3320
-        height: 1980
-      alignment: 2
-      pivot: {x: 0.5, y: 1}
-      border: {x: 0, y: 0, z: 0, w: 187}
+        height: 1852
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 8, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -194,12 +194,12 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 313
+        y: 261
         width: 3320
         height: 1980
-      alignment: 2
-      pivot: {x: 0.5, y: 1}
-      border: {x: 0, y: 0, z: 0, w: 138}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 61, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
