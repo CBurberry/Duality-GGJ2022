@@ -637,7 +637,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7366092814900110877, guid: ffb75584014b35c4dba6c1a78e707cb6, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7366092814900110877, guid: ffb75584014b35c4dba6c1a78e707cb6, type: 3}
       propertyPath: m_LocalRotation.x
@@ -645,7 +645,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7366092814900110877, guid: ffb75584014b35c4dba6c1a78e707cb6, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7366092814900110877, guid: ffb75584014b35c4dba6c1a78e707cb6, type: 3}
       propertyPath: m_LocalRotation.z
@@ -657,7 +657,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7366092814900110877, guid: ffb75584014b35c4dba6c1a78e707cb6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 180
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7366092814900110877, guid: ffb75584014b35c4dba6c1a78e707cb6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -3429,7 +3429,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 0
   anim: {fileID: 1097540752}
-  canTurn: 0
+  canTurn: 1
   audioPlayer: {fileID: 14}
 --- !u!1 &2036445801
 GameObject:
