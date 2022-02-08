@@ -27,7 +27,7 @@ public class Interactable : ObjectActivator
     public GameObjectEvent OnInteract;
 
     [BoxGroup("Interactable")]
-    [SerializeField] private ItemData itemRequiredForInteraction;
+    [SerializeField] public List<ItemData> itemRequiredForInteraction;
 
     [EnableIf(EConditionOperator.And, "CanBeInteracted", "isFocused")]
     [Button("Interact")]
@@ -53,23 +53,33 @@ public class Interactable : ObjectActivator
     {
         base.OnTriggerEnter2D(collision);
 
-        //Object Can be interacted with if no item required for interaction.
-        if (itemRequiredForInteraction == null)
+        //Object Can be interacted with if no items are required for interaction.
+        if (itemRequiredForInteraction.Count <= 0)
         {
+            Debug.Log("[INTERACTABLE] - No items found in ItemsRequiredForInteraction List");
             CanBeInteracted = true;
         }
-        //Object cannot be interacted with if item required is not in inventory.
-        else if(itemRequiredForInteraction != null && !collision.gameObject.GetComponent<PlayerInventory>().heldItems.Contains(itemRequiredForInteraction.ItemType))
+        //Object checked for items to be required are present
+        else if(itemRequiredForInteraction.Count > 0)
         {
-            //Item Required for interaction is not in the player inventory - replace with UI prompt
-            Debug.Log("[Interactable] " + name + ": Item - " + itemRequiredForInteraction.name + " - Not Found in Player Inventory.");
-        }
-        //Object can be interacted with if the item required is in the inventory.
-        else if (itemRequiredForInteraction != null && collision.gameObject.GetComponent<PlayerInventory>().heldItems.Contains(itemRequiredForInteraction.ItemType))
-        {
-            Debug.Log("Required Item Detected.");
-            //Remove item from inventory
-            CanBeInteracted = true;
+            PlayerInventory playerInventory = collision.gameObject.GetComponent<PlayerInventory>();
+
+            foreach (ItemData item in itemRequiredForInteraction)
+            {
+                //Object can be interacted with if the object is found (will continue check for other items).
+                if (playerInventory.heldItems.Contains(item.ItemType))
+                {
+                    Debug.Log("[INTERACTABLE] - " + item.ItemType + " found.");
+                    CanBeInteracted = true;
+                }
+                //Object cannot be interacted with if an item required is not in inventory.
+                else
+                {
+                    Debug.Log("[INTERACTABLE] - " + item.ItemType + " NOT FOUND.");
+                    CanBeInteracted = false;
+                    return;
+                }
+            }
         }
     }
 

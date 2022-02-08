@@ -40,6 +40,8 @@ public class PlayerInventory : MonoBehaviour
 
     private string playerInventoryAssetName = "PlayerInventoryUI";
 
+    private List<GameObject> inventoryIcons = new List<GameObject>(); 
+
     void Awake()
     {
         var inventoryObj = GameObject.Find(playerInventoryAssetName);
@@ -71,11 +73,21 @@ public class PlayerInventory : MonoBehaviour
         Debug.Log($"Picked up an item of type '{pickup.item.ToString()}'!");
         AddItem(pickup.item);
 
+        if(pickup.itemRequiredForInteraction.Count > 0) //[BRIAN NOTE] Removes each item required for Interaction upon use.
+        {
+            //Debug.Log("[PLAYERINVENTORY] - ItemRequiredForInteraction Count > 0.");
+            foreach(ItemData item in pickup.itemRequiredForInteraction)
+            {
+                //Debug.Log("[PLAYERINVENTORY]  - Request to remove: " + item.ItemType);
+                RemoveItem(item.ItemType);
+            }
+        }
 
         if (pickup.noninteractableAfterPickUp) //[BRIAN NOTE] changes tag to "untagged" once picked up
         {
             pickup.tag = "Untagged";
         }
+
         if (pickup.deactivateOnPickUp) //[BRIAN NOTE] deactivates on pickup.
         {
             pickup.gameObject.SetActive(false);
@@ -93,6 +105,11 @@ public class PlayerInventory : MonoBehaviour
 
         var data = GetItemData(item);
         var icon = Instantiate(iconPrefab, layoutGroup.transform);
+        //renames the icon object to the Item Type
+        icon.name = data.ItemType.ToString();
+        //keeps a reference to each added icon object
+        inventoryIcons.Add(icon);
+
         icon.GetComponent<Image>().sprite = data.Sprite;
         itemIconReferences.Add(item, icon);
         heldItems = itemIconReferences.Keys.ToList();
@@ -109,9 +126,30 @@ public class PlayerInventory : MonoBehaviour
 
     private void RemoveItem(Items item)
     {
+        GameObject itemDestroyed = null;
         heldItems.Remove(item);
         itemIconReferences.Remove(item);
         heldItems = itemIconReferences.Keys.ToList();
+        
+        //Checks for the iconObject and removes it.
+        foreach(GameObject iconObject in inventoryIcons)
+        {
+            //Debug.Log("[PLAYERINVENTORY] - Checking Item: " + iconObject.name + " against: " + item);
+
+            //compares item to the iconObject name.
+            if(iconObject.name == item.ToString())
+            {
+                //Debug.Log("[PLAYERINVENTORY] - Matching Image Found: " + iconObject.name);
+                //takes a reference to the object before destruction;
+                itemDestroyed = iconObject;
+                Destroy(iconObject);
+            }
+        }
+        if(itemDestroyed != null)
+        {
+            //removes reference to item objects that have been destroyed.
+            inventoryIcons.Remove(itemDestroyed);
+        }
     }
 
     private ItemData GetItemData(Items item)

@@ -64,7 +64,7 @@ public class PlayerMovement : MonoBehaviour
             ////TELL THE ANIMATOR ABOUT THE INPUT/////
             float spd = Mathf.Abs(move.x) + Mathf.Abs(move.y);
             anim.SetFloat("RunningSpeed", spd);      
-            Debug.Log(canTurn);
+            //Debug.Log(canTurn);
 
             ////MOVE THE PLAYER/////
             playerRigidbody2D.MovePosition(transform.position + (Vector3)move * SPEED * Time.fixedDeltaTime);

@@ -107,7 +107,7 @@ MonoBehaviour:
   OnInteract:
     m_PersistentCalls:
       m_Calls: []
-  itemRequiredForInteraction: {fileID: 0}
+  itemRequiredForInteraction: []
 --- !u!114 &8942424089717091227
 MonoBehaviour:
   m_ObjectHideFlags: 0
