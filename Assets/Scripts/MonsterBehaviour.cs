@@ -8,6 +8,7 @@ public class MonsterBehaviour : MonoBehaviour
     [SerializeField] private Animator _anim;
     [SerializeField] private bool _MonsterWalks, _MonsterLooksAround;
     [SerializeField] private float _movementSpeed;
+    [SerializeField] private float _chasingSpeed;
     [SerializeField] private float _maximumRotationInterval;
     private bool _reachedXMaxPos;
     private bool _chasingCharacter;
@@ -30,11 +31,15 @@ public class MonsterBehaviour : MonoBehaviour
     private void Update()
     {
         if (_MonsterWalks)
-        {
-            transform.Translate(Vector2.right * Time.deltaTime * _movementSpeed);
+        { 
             if (!_chasingCharacter)
             {
+                transform.Translate(Vector2.right * Time.deltaTime * _movementSpeed);
                 CheckLocationChangeDirection();
+            }
+            else if (_chasingCharacter)
+            {
+                transform.Translate(Vector2.right * Time.deltaTime * _chasingSpeed);
             }
             float spd = Mathf.Abs(_movementSpeed);
             _anim.SetFloat("RunningSpeed", spd);
@@ -83,9 +88,16 @@ public class MonsterBehaviour : MonoBehaviour
         if(collision.gameObject.tag == "Player")
         {
             Debug.Log("Character Caught!");
-            //Trigger the Death of the Player
+            //Trigger the Player Death Animation
+
+            //Player Controls Deactivated
+            collision.gameObject.GetComponent<PlayerMovement>().SetMovementActive(false);
+
             //Trigger Attack Animation
             _MonsterWalks = false; //Stops the monster Walking (or it will just push the player).
+
+            //Reload current scene
+            GetComponent<GoToScene>().GoToTargetScene();
         }
     }
 }

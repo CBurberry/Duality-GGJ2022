@@ -16,23 +16,23 @@ public class GoToScene : MonoBehaviour
     public string TargetScene;
 
     
-    IEnumerator ChangeScene()
+    IEnumerator ChangeScene(string _aRequestedSceneName)
     {
         musicAnim.SetTrigger("FadeOut");
         yield return new WaitForSeconds(transitionTime);
-        SceneManager.LoadScene(TargetScene);
+        SceneManager.LoadScene(_aRequestedSceneName);
     }
 
 
 
     public void GoToTargetScene()
     {
-        if (TargetScene == SceneManager.GetActiveScene().name)
+        /*if (TargetScene == SceneManager.GetActiveScene().name)
         {
             Debug.LogWarning($"'{gameObject.name}' attempted a scene transition to the currently loaded scene! Aborting.");
             return;
-        }
+        }*/
 
-        StartCoroutine(ChangeScene());
+        StartCoroutine(ChangeScene(TargetScene));
     }
 }
